@@ -12,7 +12,7 @@ html {
     background-color: lightgreen;
 }
 
-#root {
+.characters {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -32,4 +32,15 @@ html {
 
 .char img {
     border-bottom: 2px solid black;
+}
+
+.buttons {
+    margin: 0 auto;
+    width: fit-content;
+}
+
+button {
+    padding: 12px;
+    font-size: 150%;
+    margin: 10px;
 }
