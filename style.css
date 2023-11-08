@@ -1,0 +1,35 @@
+/* --- CSS RESET --- */
+* {
+    padding: 0;
+    margin: 0;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+/* --- CSS RESET ENDS --- */
+
+html {
+    background-color: lightgreen;
+}
+
+#root {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.char {
+    border: 2px solid black;
+    background-color: rgb(224, 252, 206);
+}
+
+.char h2, h3 {
+    padding: 10px;
+    text-align: center;
+}
+
+.char img {
+    border-bottom: 2px solid black;
+}
