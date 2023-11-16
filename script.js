@@ -5,16 +5,18 @@ const fetchUrl = (url) => fetch(url).then((res) => res.json());
 const skeletonComponent = () => `
     <h1>Rick and Morty app</h1>
     <p id="selected-card"></p>
-    <div class="characters"></div>
-    <div class="buttons"></div>
+    <div class="characters" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; background-color: lightgreen"></div>
+    <div class="buttons style="position: fixed; bottom: 0; right: 0;"></div>
 `;
 
 const characterComponent = (characterData) => `
-    <div class="char">
-        <img src=${characterData.image}>
-        <h4>${characterData.id}</h4>
-        <h2>${characterData.name}</h2>
-        <h3>appears in: ${characterData.episode.length} episodes</h3>
+    <div class="char card text-center border-success" style="max-width: 15rem;">
+        <img src=${characterData.image} class="card-img-top">
+        <div class="card-body text-success">
+          <h4>${characterData.id}</h4>
+          <h2 class="card-title">${characterData.name}</h2>
+          <h3>appears in: ${characterData.episode.length} episodes</h3>
+        </div>
     </div>
 `;
 
@@ -34,7 +36,7 @@ const selectedCharacterComponent = (characterData) => {
     `;
 };
 
-const buttonComponent = (id, text) => `<button id=${id}>${text}</button>`;
+const buttonComponent = (id, text) => `<button id=${id} class="btn btn-outline-info">${text}</button>`;
 
 const buttonEventComponent = (id, url) => {
   const buttonElement = document.querySelector(`#${id}`);
@@ -43,7 +45,7 @@ const buttonEventComponent = (id, url) => {
     fetchUrl(url).then((data) => {
       makeDomFromData(data, rootElement);
       const selectedCharElement = document.getElementById("selected-card");
-      const charElements = document.querySelectorAll(".char");
+      /* const charElements = document.querySelectorAll(".char");
 
       charElements.forEach((charElement) =>
         charElement.addEventListener("click", () => {
@@ -51,7 +53,7 @@ const buttonEventComponent = (id, url) => {
           const selectedChar = data.results.find((char) => char.id === selectedId);
           selectedCharElement.innerHTML = selectedCharacterComponent(selectedChar);
         })
-      );
+      ); */
     });
   });
 };
@@ -85,14 +87,14 @@ const init = () => {
 
     const selectedCharElement = document.getElementById("selected-card");
 
-    const charElements = document.querySelectorAll(".char");
+    /* const charElements = document.querySelectorAll(".char");
     charElements.forEach((charElement) =>
       charElement.addEventListener("click", () => {
         const selectedId = Number(charElement.querySelector("h4").innerText);
         const selectedChar = data.results.find((char) => char.id === selectedId);
         selectedCharElement.innerHTML = selectedCharacterComponent(selectedChar);
       })
-    );
+    ); */
   });
 };
 
